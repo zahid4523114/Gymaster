@@ -24,8 +24,10 @@ const Header = () => {
             </p>
           </div>
           <div>
-            <Link> লগ ইন </Link>
-            <Link>রেজিস্টার</Link>
+            <Link to={"/logIn"}> লগ ইন </Link>
+            <Link className="ml-2" to={"/signUp"}>
+              রেজিস্টার
+            </Link>
           </div>
         </div>
       </div>
@@ -53,6 +55,23 @@ const Header = () => {
           <span>
             <CiShoppingCart className="text-3xl mr-3"></CiShoppingCart>
           </span>
+        </div>
+      </div>
+      <div
+        className="  p-3 text-gray-500"
+        style={{ backgroundColor: "#F5F5F5" }}
+      >
+        <div className="w-4/5 mx-auto flex justify-between items-center">
+          <Link style={{ color: "#3E084C" }} className="font-bold">
+            হোম
+          </Link>
+          <Link>জিমের সরঞ্জাম</Link>
+          <Link>জিমের পোশাক</Link>
+          <Link>সাপ্লিমেন্টস</Link>
+          <Link> হ্যান্ড গ্রিপ</Link>
+          <Link> পুশ আপ বার</Link>
+          <Link>আমাদের সম্পর্কে</Link>
+          <Link>যোগাযোগ</Link>
         </div>
       </div>
     </div>
