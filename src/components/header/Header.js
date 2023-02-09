@@ -31,7 +31,7 @@ const Header = () => {
       </div>
       <div className="navbar flex justify-between items-center bg-base-100 px-5">
         <div>
-          <img className="w-48" alt="" src={logo}></img>
+          <img className="w-44" alt="" src={logo}></img>
         </div>
         <div>
           <input
@@ -48,10 +48,10 @@ const Header = () => {
         </div>
         <div>
           <span>
-            <CiUser className="text-4xl mr-4"></CiUser>
+            <CiUser className="text-3xl mr-3"></CiUser>
           </span>
           <span>
-            <CiShoppingCart className="text-4xl mr-4"></CiShoppingCart>
+            <CiShoppingCart className="text-3xl mr-3"></CiShoppingCart>
           </span>
         </div>
       </div>
