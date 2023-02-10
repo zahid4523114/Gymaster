@@ -21,7 +21,7 @@ const Category = () => {
   ];
 
   return (
-    <div className="m-20">
+    <div className="lg:m-20 m-10">
       <div className="flex justify-between items-center">
         <h1 className="font-bold text-2xl" style={{ color: "#3E084C" }}>
           ক্যাটেগোরি সমূহ
@@ -31,9 +31,9 @@ const Category = () => {
           <BsArrowUpRight></BsArrowUpRight>
         </p>
       </div>
-      <div className="flex justify-between items-center mt-10">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-5 gap-y-5  mt-10">
         {categoryPhotos.map((category) => (
-          <div className="card w-96 rounded-none bg-base-100 shadow">
+          <div className="card rounded-none bg-base-100 shadow">
             <figure>
               <img src={category.categoryThumb} alt="" />
             </figure>
