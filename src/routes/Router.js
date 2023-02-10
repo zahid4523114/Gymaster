@@ -3,9 +3,9 @@ import Main from "../layout/Main";
 import Home from "../components/home/Home";
 import Banner from "../components/banner/Banner";
 import LogIn from "../components/log_in/LogIn";
-import SignUp from "../components/sign_up/SignUp";
 import Blog from "../components/blog/Blog";
 import Category from "../components/category/Category";
+import Register from "../components/register/Register";
 
 export const router = createBrowserRouter([
   {
@@ -14,6 +14,10 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/banner",
         element: <Banner></Banner>,
       },
       {
@@ -21,8 +25,8 @@ export const router = createBrowserRouter([
         element: <LogIn></LogIn>,
       },
       {
-        path: "/signUp",
-        element: <SignUp></SignUp>,
+        path: "/register",
+        element: <Register></Register>,
       },
       {
         path: "/blog",

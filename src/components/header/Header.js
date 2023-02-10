@@ -25,7 +25,7 @@ const Header = () => {
           </div>
           <div className="lg:my-0 md:my-0 my-2">
             <Link to={"/logIn"}> লগ ইন </Link>
-            <Link className="ml-2" to={"/signUp"}>
+            <Link className="ml-2" to={"/register"}>
               রেজিস্টার
             </Link>
           </div>
@@ -33,7 +33,9 @@ const Header = () => {
       </div>
       <div className="navbar flex justify-between items-center bg-base-100 px-5">
         <div>
-          <img className="w-44" alt="" src={logo}></img>
+          <Link to={"/banner"}>
+            <img className="w-44" alt="" src={logo}></img>
+          </Link>
         </div>
         <div className="lg:flex lg:items-center md:flex md:items-center hidden">
           <input
@@ -71,40 +73,6 @@ const Header = () => {
         >
           <CiSearch></CiSearch>
         </span>
-      </div>
-
-      <div
-        className="  p-3 text-gray-500"
-        style={{ backgroundColor: "#F5F5F5" }}
-      >
-        <div className="lg:w-4/5 md:w-full lg:mx-auto flex lg:justify-between lg:items-center lg:flex-row md:flex-row flex-col md:justify-between md:items-center lg:px-0 md:px-0 pl-2">
-          <Link style={{ color: "#3E084C" }} className="font-bold ">
-            হোম
-          </Link>
-          <Link className=" hover:text-fuchsia-900 lg:mt-0 md:lg-0 mt-3">
-            জিমের সরঞ্জাম
-          </Link>
-          <Link className=" hover:text-fuchsia-900 lg:mt-0 md:lg-0 mt-3">
-            জিমের পোশাক
-          </Link>
-          <Link className=" hover:text-fuchsia-900 lg:mt-0 md:lg-0 mt-3">
-            সাপ্লিমেন্টস
-          </Link>
-          <Link className=" hover:text-fuchsia-900 lg:mt-0 md:lg-0 mt-3">
-            {" "}
-            হ্যান্ড গ্রিপ
-          </Link>
-          <Link className=" hover:text-fuchsia-900 lg:mt-0 md:lg-0 mt-3">
-            {" "}
-            পুশ আপ বার
-          </Link>
-          <Link className=" hover:text-fuchsia-900 lg:mt-0 md:lg-0 mt-3">
-            আমাদের সম্পর্কে
-          </Link>
-          <Link className=" hover:text-fuchsia-900 lg:mt-0 md:lg-0 mt-3">
-            যোগাযোগ
-          </Link>
-        </div>
       </div>
     </div>
   );
