@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../../images/Logo.png";
 import { Link } from "react-router-dom";
 import { BsTelephone } from "react-icons/bs";
 import { CiMail, CiUser, CiShoppingCart, CiSearch } from "react-icons/ci";
+import { AuthContext } from "../context/AuthProvider";
 
 const Header = () => {
+  const { user, userSignOut } = useContext(AuthContext);
   return (
     <div>
       <div style={{ backgroundColor: "#3E084C" }}>
@@ -24,7 +26,11 @@ const Header = () => {
             </p>
           </div>
           <div className="lg:my-0 md:my-0 my-2">
-            <Link to={"/logIn"}> লগ ইন </Link>
+            {user?.email ? (
+              <Link onClick={userSignOut}> লগ আউট </Link>
+            ) : (
+              <Link to={"/logIn"}> লগ ইন </Link>
+            )}
             <Link className="ml-2" to={"/register"}>
               রেজিস্টার
             </Link>
@@ -51,9 +57,9 @@ const Header = () => {
           </span>
         </div>
         <div>
-          <span>
+          <Link to={"/users"}>
             <CiUser className="text-3xl lg:mr-3 md:mr-3 m-1"></CiUser>
-          </span>
+          </Link>
           <span>
             <CiShoppingCart className="text-3xl lg:mr-3 md:mr-3"></CiShoppingCart>
           </span>

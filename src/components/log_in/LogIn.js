@@ -1,13 +1,51 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const LogIn = () => {
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
+  const { userLogin, passwordReset } = useContext(AuthContext);
+
+  const [resetEmail, setResetMail] = useState();
+
   const handleLogIn = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+
+    //login user with email and password
+    userLogin(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+        toast.success("লগইন সম্পন্ন হয়েছে");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        const err = error.message;
+        // const message = str.split(" ")[2];
+        toast.error(err);
+      });
+  };
+
+  const resetEmailOnChange = (e) => {
+    setResetMail(e.target.value);
+  };
+
+  const handleResetMail = () => {
+    passwordReset(resetEmail)
+      .then(() => {
+        toast.success("পাসওয়ার্ড রিসেট লিংক আপনার জিমেইল এ পাঠানো হয়েছে..!");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
   return (
     <div>
@@ -19,6 +57,8 @@ const LogIn = () => {
           <div className="">
             <div className="my-8">
               <input
+                required
+                onChange={resetEmailOnChange}
                 type="email"
                 name="email"
                 placeholder="Email"
@@ -29,13 +69,17 @@ const LogIn = () => {
           <div className="">
             <div className="my-8">
               <input
+                required
                 type="password"
                 name="password"
                 placeholder="Password"
                 className="input input-bordered rounded-none w-full"
               />
             </div>
-            <Link className="text-gray-600 link link-hover">
+            <Link
+              onClick={handleResetMail}
+              className="text-gray-600 link link-hover"
+            >
               Forgot Password
             </Link>
           </div>
