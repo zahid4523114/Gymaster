@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import { toast } from "react-hot-toast";
 
 const Register = () => {
   const { userRegister, userUpdate } = useContext(AuthContext);
   const [author, setAuthor] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -44,6 +45,7 @@ const Register = () => {
             if (data.acknowledged) {
               form.reset();
               toast.success("রেজিস্ট্রেশন সম্পন্ন হয়েছে");
+              navigate("/banner");
             }
           });
       })
